@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+@model UserLoginVM
+<div class="row">
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Default form</h4>
+            <p class="card-description">
+                Basic form layout
+            </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label asp-for="NameOrUsername" class="form-label">NameOrUsername</label>
+                    <input asp-for="NameOrUsername" class="form-control">
+                    <span asp-validation-for="NameOrUsername"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" class="form-control">
+                    <span asp-validation-for="Password"></span>
+                </div> 
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="form-label">ConfirmPassword</label>
+                    <input asp-for="ConfirmPassword" class="form-control">
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div class="form-check form-check-flat form-check-primary">
+                    <label asp-for="IsPersistense" class="form-check-label">
+                        <input asp-for="IsPersistense"  class="form-check-input">
+                        Remember me
+                    </label>
+                        <a asp-action="Register">I don't have account</a>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button asp-controller="Home" asp-action="Index" class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

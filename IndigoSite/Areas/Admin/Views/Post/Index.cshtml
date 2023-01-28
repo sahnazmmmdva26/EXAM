@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+      <th></th>
+            <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (Post item in Model)
+        {
+       <tr>
+       <td>@item.Id</td>
+      <td>@item.Title</td>
+      <td>@item.Description</td>
+      <td>@item.ButtonText</td>
+      <td><img src="~/assets/images/@item.ImgUrl"></img></td>
+      <td><a class="btn btn-danger" asp-controller="Post" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                <td><a class="btn btn-info" asp-controller="Post" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+    </tr>
+        }
+
+     
+
+
+    </tbody>
+    
+</table>
+<div class="row">
+
+   <nav aria-label="...">
+        @for (int i = 1; i < ViewBag.MaxPageCount; i++)
+
+        { 
+                        <ul class="pagination pagination-sm">
+                            <li class="page-item @(ViewBag.CurrentPage==i? "active" : "" )" aria-current="page">
+                                <a asp-route-page="@i" class="page-link">@i</a>
+                            </li>
+
+                         </ul>
+        }
+        </nav>
+
+</div>
